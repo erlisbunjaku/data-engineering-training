@@ -12,6 +12,8 @@ student_id=9, column=course
 Invalid numeric values:
 student_id=12, column=attendance, value=abc
 
+
+
 Inconsistent text values:
 student_id=6, column=city, value=VUSHTRRI
 student_id=7, column=course, value=Data engineering

@@ -1,0 +1,32 @@
+Daily Report - Day 3 SQL Foundations
+
+Today I worked on:
+
+* Practicing SQL fundamentals and understanding how databases store and retrieve data.
+
+Completed tasks:
+
+* Created the orders table and inserted sample data.
+* Completed SQL queries using SELECT, WHERE, AND/OR, ORDER BY, LIMIT, and calculated columns.
+* Created a custom business table and analyzed it with SQL queries.
+* Documented a data pipeline workflow.
+
+Not completed yet:
+
+* I need more practice with advanced SQL queries and larger datasets.
+
+The hardest part was:
+
+* Understanding how to combine multiple conditions and create useful calculated columns.
+
+How I tried to solve it:
+
+* I practiced different SQL queries, checked the results, and reviewed how each SQL keyword works.
+
+What I understood better today:
+
+* How SQL is used to filter, organize, and transform data for business analysis.
+
+What I need to improve for the next session:
+
+* Practice more complex SQL queries and start working with larger data pipelines.
