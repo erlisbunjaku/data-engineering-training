@@ -1,0 +1,36 @@
+Daily Report - Day 4 Practice
+
+Today I worked on:
+- Practiced working with order data using Python and SQL.
+- Reviewed filtering, sorting, calculations, and basic data analysis logic.
+
+Python tasks completed:
+- Created an orders dataset using a list of dictionaries.
+- Used functions to count orders, filter by status, calculate total amounts, sort records, and create summaries.
+- Practiced counting orders by city and category using dictionaries.
+
+SQL tasks completed:
+- Created the orders table and inserted sample data in SQLiteOnline.com.
+- Practiced SELECT queries, WHERE filters, sorting, LIMIT, and calculated columns.
+- Used SQL functions like COUNT and SUM for simple analysis.
+
+Comparison tasks completed:
+- Compared how Python and SQL solve the same data problems.
+- Learned that Python uses loops and conditions, while SQL uses queries to filter and analyze table data.
+
+
+What I understood better today:
+- I understood better how the same data tasks can be solved using both Python and SQL.
+- I learned how filtering, sorting, and calculations work with lists of dictionaries and database tables.
+
+What was difficult:
+- Understanding some SQL concepts like calculated columns, sorting, and comparing SQL logic with Python logic.
+- Writing queries correctly and fixing small syntax mistakes.
+
+What I need to practice more:
+- I need to practice writing more SQL queries, especially GROUP BY and more advanced filtering.
+- I need to become faster with Python data processing using functions and dictionaries.
+
+Did I use AI? If yes, how did I use it?
+- Yes, I used AI as a learning assistant to explain concepts, review my code structure, and help understand Python and SQL logic.
+- I checked the explanations and adapted the solutions to understand the tasks better.
