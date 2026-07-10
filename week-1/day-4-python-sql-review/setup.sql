@@ -10,7 +10,7 @@ CREATE TABLE orders(
     price REAL,
     status TEXT,
     order_date TEXT
-);
+);dd
 
 -- Insert sample data
 

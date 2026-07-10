@@ -1,0 +1,21 @@
+order_id,customer_name,city,product,category,quantity,price,status,order_date
+1,Arta,Vushtrri,Laptop,Electronics,1,700,completed,2026-07-01
+2,Besnik,Prishtina,Mouse,Accessories,2,25,completed,2026-07-01
+3,Drita,Mitrovica,Keyboard,Accessories,1,45,pending,2026-07-02
+4,Flamur,Peja,Office Chair,Office,1,180,completed,2026-07-02
+5,Gentiana,Gjakova,Monitor,Electronics,2,240,pending,2026-07-03
+6,Ilir,Ferizaj,Laptop Stand,Accessories,3,35,completed,2026-07-03
+7,Kujtim,Vushtrri,Printer,Office,1,210,cancelled,2026-07-04
+8,Linda,Prishtina,USB Hub,Accessories,4,20,completed,2026-07-04
+9,Mergim,Peja,Desktop PC,Electronics,1,950,pending,2026-07-05
+10,Nora,Mitrovica,Notebook Pack,Office,5,8,completed,2026-07-05
+11,Orhan,Gjakova,Webcam,Electronics,2,85,completed,2026-07-06
+12,Rea,Ferizaj,Desk Lamp,Office,2,40,cancelled,2026-07-06
+13,Samir,Vushtrri,Headphones,Electronics,1,120,completed,2026-07-07
+14,Teuta,Prishtina,External SSD,Electronics,2,150,pending,2026-07-07
+15,Valon,Peja,Wireless Charger,Accessories,3,30,completed,2026-07-08
+16,Yllka,Gjakova,Filing Cabinet,Office,1,260,pending,2026-07-08
+17,Albion,Ferizaj,Mechanical Keyboard,Accessories,1,95,completed,2026-07-09
+18,Blerina,Mitrovica,Projector,Electronics,1,650,cancelled,2026-07-09
+19,Donat,Prishtina,Office Desk,Office,2,320,completed,2026-07-10
+20,Elira,Vushtrri,Power Bank,Accessories,4,28,pending,2026-07-10

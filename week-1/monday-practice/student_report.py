@@ -1,5 +1,5 @@
 def get_performance_status(student):
-    attendance = student.get("attendance", 0)
+    attendance = student.get("attendance", 0) #default value
     homework = student.get("homework_score", 0)
     if attendance >= 80 and homework >= 80:
         return "Strong"

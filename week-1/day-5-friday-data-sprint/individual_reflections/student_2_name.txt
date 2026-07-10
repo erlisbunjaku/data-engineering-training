@@ -1,0 +1,22 @@
+# Individual Reflection - Erlis Bunjaku
+
+## My role in the group:
+My role was to work on Python data analysis, data processing, and understanding how the dataset can be transformed into useful business information.
+
+## What I worked on:
+I worked on creating the Python analysis script for the orders dataset. I implemented functions to load the CSV file, calculate total order amounts, calculate completed revenue, find the most expensive orders, and count orders by status, city, and category. I also worked on creating a clean business report that displays the analysis results in the terminal.
+
+## What I understood better today:
+I understood better how Python can be used for data engineering tasks such as reading datasets, cleaning data, transforming values, and generating business insights. I learned how structured functions make code easier to maintain and how data analysis can support business decisions.
+
+## What was difficult for me:
+The difficult part was organizing the Python code correctly, making sure each function worked properly, and debugging issues related to file paths and data processing.
+
+## What I can explain live:
+I can explain how the Python script loads the CSV dataset, how total amounts and revenue are calculated, how dictionaries are used for counting data, and how the final business report is generated.
+
+## What I still need to practice:
+I still need to practice working with larger datasets, learning more advanced Python data analysis techniques, and improving my understanding of data pipelines and automation.
+
+## Did I use AI? If yes, how did I use it?
+Yes, I used AI as a learning assistant to help me understand Python concepts, debug errors, improve my code structure, and explain solutions. I used it to support my learning and improve my understanding of the tasks.

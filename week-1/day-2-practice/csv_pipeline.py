@@ -1,6 +1,6 @@
-import csv
-import os
-from collections import Counter
+import csv # Used to read from and write to CSV files
+import os # Used to work with files, folders, and operating system paths
+from collections import Counter # Used to count how many times each item appears
 
 
 # Read CSV file and return records
