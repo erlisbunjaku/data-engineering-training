@@ -1,0 +1,43 @@
+Daily Report - Day 6 Practice
+
+Today I worked on:
+- Practiced SQL business reporting by creating queries using aggregations, GROUP BY, HAVING, and JOIN methods.
+
+SQL setup completed:
+- Created the customers, products, and orders tables.
+- Inserted the provided dataset and tested the database structure.
+
+Aggregation tasks completed:
+- Created queries using COUNT, SUM, AVG, MIN, and MAX.
+- Calculated total orders, completed orders, product prices, and completed revenue.
+
+GROUP BY tasks completed:
+- Created grouped reports by status, date, customer_id, and product_id.
+- Used HAVING to filter grouped results.
+
+JOIN tasks completed:
+- Connected orders with customers and products.
+- Created reports with customer names, cities, product names, categories, prices, and revenue calculations.
+
+Business report completed:
+- Analyzed SQL results and wrote business insights about revenue, products, customers, and cities.
+
+What I understood better today:
+- I understood better how SQL can be used to turn raw data into business reports.
+- I improved my understanding of aggregation functions, GROUP BY, HAVING, and how tables are connected.
+
+What was difficult:
+- Understanding JOIN methods and knowing which columns should be used to connect tables was the most difficult part.
+- I still need more practice when working with multiple tables.
+
+What I need to practice more:
+- I need to practice writing more complex JOIN queries and understanding relationships between tables.
+- I also need more practice creating advanced business reports.
+
+Did I use AI? If yes, how did I use it?
+- Yes, I used AI to help check SQL syntax, correct mistakes, and understand query structure.
+- I used it as a learning tool to improve my understanding, not only to copy answers.
+
+What can I explain live without help:
+- I can explain basic SQL queries, aggregation functions, GROUP BY, HAVING, and how to calculate business metrics like revenue.
+- I can explain the purpose of JOINs, but I still need more practice to confidently write complex JOIN queries.
