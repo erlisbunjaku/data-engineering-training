@@ -1,0 +1,28 @@
+Daily Report - Day 7 Practice
+
+Today I worked on:
+- Fixing broken SQL queries, creating validation queries, and preparing a business report using SQL results.
+
+Broken queries I fixed:
+- Fixed issues with JOINs, missing conditions, wrong table references, and GROUP BY problems.
+
+Validation queries I completed:
+- Created queries to check orders, customers, products, revenue, and other business information.
+
+Business numbers I verified:
+- Verified order counts, revenue, customer activity, and other results using validation queries.
+
+What SQL mistake I understand better now:
+- I understand better how missing JOINs, wrong columns, and incorrect query structure can affect the results.
+
+What was difficult:
+- Debugging in general was the hardest part, especially understanding when to use JOIN and how the ON condition connects tables.
+
+What I need to practice more:
+- I need to practice JOIN methods and ON conditions more.
+
+Did I use AI? If yes, how did I use it?
+- Yes, I used AI for formatting the reports and making the text look more professional and organized.
+
+Can I explain my fixed queries live?
+- Yes, I can explain them, but not at a perfect level yet. I understand the logic and can explain most of the fixes, but I still need more practice at home to become more confident.
