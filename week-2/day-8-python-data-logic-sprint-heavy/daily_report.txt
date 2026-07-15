@@ -1,0 +1,28 @@
+# Daily Report - Day 8 Practice
+
+Today I worked on:
+Building a Python data analysis project where I processed raw order data, cleaned the records, validated the information, calculated business metrics, and created reports.
+
+Python tasks completed:
+Completed functions for validation, cleaning, normalization, calculations, dictionary reports, sorting, and file generation.
+
+Validation logic completed:
+Created validation rules for missing customer names, invalid quantities, and invalid prices. Invalid records were separated and saved with the reasons why they were removed.
+
+Cleaning/normalization completed:
+Normalized statuses, cities, categories, and channels. Added calculated total amounts for valid orders.
+
+Reports generated:
+Created validation reports, invalid records reports, and a business report with revenue calculations, summaries, and rankings.
+
+What was difficult:
+The hardest part was organizing the full data flow and understanding when each step should happen. I also had some difficulties with dictionary-based reports and sorting data correctly.
+
+What I understood better today:
+I understood better how real data needs to be cleaned before making calculations and how functions help organize larger Python programs.
+
+What I need to practice more:
+I need more practice with working with dictionaries, sorting complex data, and creating larger data processing scripts.
+
+Did I use AI? If yes, how did I use it?
+Yes, I used AI mainly for help with formatting my reports, understanding parts where I was stuck, checking my logic, and getting explanations for concepts that were unclear. I used it as support to understand the code better, not to replace the work.
