@@ -96,7 +96,7 @@ def write_invalid_records(invalid_orders):
 
         for order in invalid_orders:
             file.write(f"Order ID: {order['order_id']}\n")
-            file.write(f"Customer: {order['customer_name']}\n")
+            file.write(f"Customer: {order['customer_name',]}\n")
             file.write("Reasons:\n")
             for reason in order["reasons"]:
                 file.write(f"- {reason}\n")
@@ -178,7 +178,7 @@ def count_by_field(records, field_name):
         summary[val] = summary.get(val, 0) + 1
     return summary
 
-
+  
 def sum_revenue_by_field(records, field_name):
     summary = {}
     for r in records:

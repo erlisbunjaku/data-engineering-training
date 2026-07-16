@@ -1,0 +1,29 @@
+Daily Report - Day 9 Practice
+
+Today I worked on:
+- Building a Python CSV pipeline to load, validate, clean, enrich, and export data.
+
+Pipeline parts completed:
+- Loaded CSV files.
+- Created lookup tables.
+- Added cleaning and validation rules.
+- Enriched orders with customer/product data.
+- Generated clean and invalid output files.
+- Created data quality report.
+
+Most difficult part:
+- Understanding validation flow and connecting tables using lookup dictionaries.
+
+One bug/error I fixed:
+- Fixed lookup keys, missing returns, and total amount calculation.
+
+What I understood better about Bronze/Silver/Gold:
+- Bronze = raw data.
+- Silver = cleaned and validated data.
+- Gold = business reports and metrics.
+
+What I need to practice more:
+- Creating reports and working with larger datasets.
+
+Did I use AI? If yes, how did I use it?
+- Yes, I used AI to review code, find errors, and better understand concepts.
