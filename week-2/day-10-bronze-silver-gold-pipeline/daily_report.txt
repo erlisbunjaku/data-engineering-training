@@ -1,0 +1,33 @@
+Daily Report - Day 10 Practice
+
+Today I worked on:
+- Building a complete Bronze, Silver, and Gold data pipeline using Python.
+
+Bronze tasks completed:
+- Loaded raw customer, product, and order CSV files.
+- Kept the original data unchanged for processing.
+
+Silver tasks completed:
+- Cleaned and validated customers, products, and orders.
+- Removed invalid records and created clean Silver files.
+- Added enriched fields like customer details, product details, and total amount.
+
+Gold tasks completed:
+- Created business reports for revenue by category, city, customer, and top products.
+- Generated executive summary and data quality reports.
+
+What I understood better today:
+- How data moves through Bronze, Silver, and Gold layers.
+- Why clean and validated data is important before creating reports.
+
+What was difficult:
+- Handling invalid records and connecting data between different files.
+
+One result I can explain and defend:
+- The Gold revenue reports are created from Silver clean data, making the results more reliable for business decisions.
+
+What I need to practice more:
+- Writing more advanced validation rules and improving pipeline automation.
+
+Did I use AI? If yes, how did I use it?
+- Yes. I used AI to help debug errors, improve code structure, and understand better practices for building the pipeline.
