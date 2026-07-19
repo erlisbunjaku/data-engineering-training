@@ -1,6 +1,6 @@
-import csv # Used to read from and write to CSV files
-import os # Used to work with files, folders, and operating system paths
-from collections import Counter # Used to count how many times each item appears
+import csv
+import os
+from collections import Counter
 
 
 # Read CSV file and return records
@@ -33,26 +33,43 @@ def inspect_records(records):
 
     print(f"\nTotal raw records: {len(records)}")
 
+    if not records:
+        print("No records found.")
+        return
+
     print("\nColumns:")
 
     for column in records[0].keys():
-
         print(column)
-
 
     print("\nFirst 3 records:")
 
     for record in records[:3]:
 
         print(
-            record["ID"],
-            "-",
-            record["Name"],
-            "-",
-            record["City"],
-            "-",
-            record["Course"]
+            f"{record['ID']} - "
+            f"{record['Name']} - "
+            f"{record['City']} - "
+            f"{record['Course']}"
         )
+
+
+# Normalize city values
+def normalize_city(city):
+
+    if not city:
+        return ""
+
+    return city.strip().title()
+
+
+# Normalize course values
+def normalize_course(course):
+
+    if not course:
+        return ""
+
+    return course.strip().title()
 
 
 # Find data quality issues
@@ -66,7 +83,7 @@ def find_data_quality_issues(records):
     for record in records:
 
 
-        # Missing values
+        # Check missing values
 
         for column, value in record.items():
 
@@ -82,7 +99,7 @@ def find_data_quality_issues(records):
                 )
 
 
-        # Invalid numeric values
+        # Check invalid numeric values
 
         numeric_columns = [
             "Age",
@@ -98,32 +115,37 @@ def find_data_quality_issues(records):
             ):
 
                 invalid_values.append(
-                    f"student_id={record['ID']}, column={column.lower()}, value={record[column]}"
+                    f"student_id={record['ID']}, "
+                    f"column={column.lower()}, "
+                    f"value={record[column]}"
                 )
 
 
-        # Inconsistent city
+        # Detect inconsistent city formatting
 
-        if record["City"] == "VUSHTRRI":
+        if (
+            record["City"]
+            and record["City"] != normalize_city(record["City"])
+        ):
 
             inconsistent_values.append(
-                "student_id=6, column=city, value=VUSHTRRI"
+                f"student_id={record['ID']}, "
+                f"column=city, "
+                f"value={record['City']}"
             )
 
 
-        if record["City"] == "prishtina":
+        # Detect inconsistent course formatting
+
+        if (
+            record["Course"]
+            and record["Course"] != normalize_course(record["Course"])
+        ):
 
             inconsistent_values.append(
-                "student_id=10, column=city, value=prishtina"
-            )
-
-
-        # Inconsistent course
-
-        if record["Course"] == "Data engineering":
-
-            inconsistent_values.append(
-                "student_id=7, column=course, value=Data engineering"
+                f"student_id={record['ID']}, "
+                f"column=course, "
+                f"value={record['Course']}"
             )
 
 
@@ -148,25 +170,23 @@ def find_data_quality_issues(records):
     report.append("\nMissing values:")
 
     for issue in missing_values:
-
         report.append(issue)
 
 
     report.append("\nInvalid numeric values:")
 
     for issue in invalid_values:
-
         report.append(issue)
 
 
     report.append("\nInconsistent text values:")
 
     for issue in inconsistent_values:
-
         report.append(issue)
 
 
     return "\n".join(report), total_issues
+
 
 
 # Clean one student record
@@ -175,7 +195,7 @@ def clean_student_record(record):
     cleaned_record = {}
 
 
-    # Convert student ID
+    # Convert ID to integer
 
     cleaned_record["student_id"] = int(record["ID"])
 
@@ -191,17 +211,11 @@ def clean_student_record(record):
 
         cleaned_record["city"] = "Unknown"
 
-    elif record["City"] == "VUSHTRRI":
-
-        cleaned_record["city"] = "Vushtrri"
-
-    elif record["City"] == "prishtina":
-
-        cleaned_record["city"] = "Prishtina"
-
     else:
 
-        cleaned_record["city"] = record["City"]
+        cleaned_record["city"] = normalize_city(
+            record["City"]
+        )
 
 
     # Clean course
@@ -210,13 +224,11 @@ def clean_student_record(record):
 
         cleaned_record["course"] = "Not Assigned"
 
-    elif record["Course"] == "Data engineering":
-
-        cleaned_record["course"] = "Data Engineering"
-
     else:
 
-        cleaned_record["course"] = record["Course"]
+        cleaned_record["course"] = normalize_course(
+            record["Course"]
+        )
 
 
     # Clean age
@@ -241,7 +253,9 @@ def clean_student_record(record):
 
     else:
 
-        cleaned_record["attendance"] = int(record["Attendance"])
+        cleaned_record["attendance"] = int(
+            record["Attendance"]
+        )
 
 
     # Clean homework score
@@ -252,17 +266,24 @@ def clean_student_record(record):
 
     else:
 
-        cleaned_record["homework_score"] = int(record["Homework"])
+        cleaned_record["homework_score"] = int(
+            record["Homework"]
+        )
 
-        # Clean registered date
+
+    # Clean registered date
+
     if record["Registered Date"] == "":
+
         cleaned_record["registered_date"] = "Unknown Date"
 
     else:
+
         cleaned_record["registered_date"] = record["Registered Date"]
 
 
     # Calculate total score
+
     cleaned_record["total_score"] = (
         cleaned_record["attendance"]
         +
@@ -270,54 +291,69 @@ def clean_student_record(record):
     )
 
 
-    # Add attendance level
+    # Attendance level
+
     if cleaned_record["attendance"] >= 80:
+
         cleaned_record["attendance_level"] = "High"
 
     elif cleaned_record["attendance"] >= 60:
+
         cleaned_record["attendance_level"] = "Medium"
 
     else:
+
         cleaned_record["attendance_level"] = "Low"
 
 
     # Performance status
+
     if (
         cleaned_record["attendance"] >= 80
         and cleaned_record["homework_score"] >= 80
     ):
+
         cleaned_record["performance_status"] = "Strong"
+
 
     elif (
         cleaned_record["attendance"] >= 60
         and cleaned_record["homework_score"] >= 60
     ):
+
         cleaned_record["performance_status"] = "Average"
 
+
     else:
+
         cleaned_record["performance_status"] = "Needs Support"
 
 
     # Risk flag
+
     if (
         cleaned_record["attendance"] < 60
         or cleaned_record["homework_score"] < 60
     ):
+
         cleaned_record["risk_flag"] = "At Risk"
 
     else:
+
         cleaned_record["risk_flag"] = "OK"
 
 
     return cleaned_record
 
 
-# Clean all student records
+
+# Clean all records
 def clean_all_records(records):
 
     cleaned_records = []
 
     for record in records:
+
         cleaned_records.append(
             clean_student_record(record)
         )
@@ -327,24 +363,20 @@ def clean_all_records(records):
 
 # Check duplicate student IDs
 def find_duplicate_ids(records):
-
-    ids = []
+    ids = set()
     duplicates = []
 
     for record in records:
-
         if record["ID"] in ids:
             duplicates.append(record["ID"])
-
         else:
-            ids.append(record["ID"])
+            ids.add(record["ID"])
 
     return duplicates
 
 
 # Save cleaned CSV file
 def save_clean_csv(records, file_path):
-
     fieldnames = [
         "student_id",
         "name",
@@ -360,26 +392,18 @@ def save_clean_csv(records, file_path):
         "attendance_level"
     ]
 
-    with open(
-        file_path,
-        "w",
-        newline="",
-        encoding="utf-8"
-    ) as file:
-
+    with open(file_path, "w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(
             file,
             fieldnames=fieldnames
         )
 
         writer.writeheader()
-
         writer.writerows(records)
 
 
 # Count values dynamically
 def count_by_field(records, field):
-
     counts = Counter()
 
     for record in records:
@@ -388,8 +412,10 @@ def count_by_field(records, field):
     return counts
 
 
-# Calculate average value
+# Calculate average safely
 def calculate_average(records, field):
+    if not records:
+        return 0
 
     total = 0
 
@@ -399,14 +425,12 @@ def calculate_average(records, field):
     return total / len(records)
 
 
-# Calculate average value by group
+# Calculate average by group
 def calculate_average_by_group(records, group_field, value_field):
-
     totals = {}
     counts = {}
 
     for record in records:
-
         group = record[group_field]
 
         if group not in totals:
@@ -416,35 +440,30 @@ def calculate_average_by_group(records, group_field, value_field):
         totals[group] += record[value_field]
         counts[group] += 1
 
-
     averages = {}
 
     for group in totals:
-
         averages[group] = totals[group] / counts[group]
 
     return averages
 
+
 # Get students by status
 def get_students_by_status(records, status):
-
     students = []
 
     for record in records:
-
         if record["performance_status"] == status:
             students.append(record["name"])
 
     return students
 
 
-# Get students by risk flag
+# Get students with risk flag
 def get_students_by_risk(records):
-
     students = []
 
     for record in records:
-
         if record["risk_flag"] == "At Risk":
             students.append(record["name"])
 
@@ -453,14 +472,13 @@ def get_students_by_risk(records):
 
 # Get top 3 students
 def get_top_students(records):
-
-    top_students = sorted(
+    sorted_students = sorted(
         records,
         key=lambda record: record["total_score"],
         reverse=True
     )
 
-    return top_students[:3]
+    return sorted_students[:3]
 
 
 # Generate final summary report
@@ -483,18 +501,6 @@ def generate_summary_report(raw_records, cleaned_records, total_issues):
 
     average_homework = calculate_average(
         cleaned_records,
-        "homework_score"
-    )
-
-    attendance_by_course = calculate_average_by_group(
-        cleaned_records,
-        "course",
-        "attendance"
-    )
-
-    homework_by_city = calculate_average_by_group(
-        cleaned_records,
-        "city",
         "homework_score"
     )
 
@@ -545,7 +551,6 @@ def generate_summary_report(raw_records, cleaned_records, total_issues):
     report.append("\nStudents by city:")
 
     for city, count in city_count.items():
-
         report.append(
             f"{city}: {count}"
         )
@@ -554,55 +559,32 @@ def generate_summary_report(raw_records, cleaned_records, total_issues):
     report.append("\nStudents by course:")
 
     for course, count in course_count.items():
-
         report.append(
             f"{course}: {count}"
-        )
-
-
-    report.append("\nAverage attendance by course:")
-
-    for course, average in attendance_by_course.items():
-
-        report.append(
-            f"{course}: {average:.2f}"
-        )
-
-
-    report.append("\nAverage homework score by city:")
-
-    for city, average in homework_by_city.items():
-
-        report.append(
-            f"{city}: {average:.2f}"
         )
 
 
     report.append("\nStrong students:")
 
     for student in strong_students:
-
         report.append(student)
 
 
     report.append("\nStudents that need support:")
 
     for student in support_students:
-
         report.append(student)
 
 
     report.append("\nAt Risk students:")
 
     for student in risk_students:
-
         report.append(student)
 
 
     report.append("\nTop 3 students by total_score:")
 
     for student in top_students:
-
         report.append(
             f"{student['name']}: {student['total_score']}"
         )
@@ -610,119 +592,69 @@ def generate_summary_report(raw_records, cleaned_records, total_issues):
 
     return "\n".join(report)
 
-
-# Save text report
+# Save text reports
 def save_text_report(text, file_path):
-
-    with open(
-        file_path,
-        "w",
-        encoding="utf-8"
-    ) as file:
-
+    with open(file_path, "w", encoding="utf-8") as file:
         file.write(text)
 
 
-# ==========================
-# Main Pipeline
-# ==========================
+# Main pipeline execution
+def main():
+    os.makedirs("output", exist_ok=True)
 
-# Create output folder automatically
+    try:
+        records = read_csv_file("data/students_raw.csv")
 
-os.makedirs(
-    "output",
-    exist_ok=True
-)
+    except FileNotFoundError as error:
+        print(error)
+        return
 
+    duplicates = find_duplicate_ids(records)
 
-# Read raw CSV
+    if duplicates:
+        print("Duplicate student IDs found:", duplicates)
 
-try:
+    inspect_records(records)
 
-    records = read_csv_file(
-        "data/students_raw.csv"
+    quality_report, total_issues = find_data_quality_issues(records)
+
+    print("\n" + quality_report)
+
+    save_text_report(
+        quality_report,
+        "output/data_quality_report.txt"
     )
 
-except FileNotFoundError as error:
+    cleaned_records = clean_all_records(records)
 
-    print(error)
+    print("\nPerformance Status")
 
-    exit()
+    for record in cleaned_records:
+        print(
+            f"{record['name']} - "
+            f"{record['performance_status']} - "
+            f"{record['risk_flag']} - "
+            f"{record['attendance_level']}"
+        )
 
-
-# Check duplicate IDs
-
-duplicates = find_duplicate_ids(records)
-
-if duplicates:
-
-    print(
-        "Duplicate student IDs found:",
-        duplicates
+    save_clean_csv(
+        cleaned_records,
+        "output/students_clean.csv"
     )
 
+    summary_report = generate_summary_report(
+        records,
+        cleaned_records,
+        total_issues
+    )
 
-# Task 2
+    print("\n" + summary_report)
 
-inspect_records(records)
-
-
-# Task 3
-
-quality_report, total_issues = find_data_quality_issues(
-    records
-)
-
-print("\n" + quality_report)
-
-save_text_report(
-    quality_report,
-    "output/data_quality_report.txt"
-)
-
-
-# Task 4 + Task 5
-
-cleaned_records = clean_all_records(
-    records
-)
-
-
-print("\nPerformance Status")
-
-for record in cleaned_records:
-
-    print(
-        record["name"],
-        "-",
-        record["performance_status"],
-        "-",
-        record["risk_flag"],
-        "-",
-        record["attendance_level"]
+    save_text_report(
+        summary_report,
+        "output/summary_report.txt"
     )
 
 
-# Task 6
-
-save_clean_csv(
-    cleaned_records,
-    "output/students_clean.csv"
-)
-
-
-# Task 7
-
-summary_report = generate_summary_report(
-    records,
-    cleaned_records,
-    total_issues
-)
-
-
-print("\n" + summary_report)
-
-save_text_report(
-    summary_report,
-    "output/summary_report.txt"
-)
+if __name__ == "__main__":
+    main()

@@ -1,12 +1,10 @@
 # Daily Report - Day 2 Practice
 
 Today I worked on:
-
 * Building a small CSV data pipeline using Python.
 * Reading raw CSV data, checking data quality, cleaning records, and generating reports.
 
 Completed tasks:
-
 * Completed all tasks from Task 1 to Task 9.
 * Created CSV inspection, data quality, cleaning, and summary reports.
 * Created cleaned student CSV output.
@@ -14,13 +12,10 @@ Completed tasks:
 * Created project documentation with README.md.
 
 Not completed yet:
-
 * Nothing. All required tasks were completed.
 
 Biggest difficulty:
-
-* Understanding how to organize the pipeline into separate functions and fixing data quality issues while keeping the raw data unchanged.
+* Handling data type conversions within the cleaning function. Specifically, when parsing the raw CSV rows, numbers like attendance and homework scores were read as strings. Trying to run calculations on them threw a TypeError, and I had to figure out how to handle missing or corrupted values (like empty spaces or text in a numeric column) without breaking the loop or mutating the original raw data layout.
 
 How I tried to solve it:
-
-* I tested each step in the terminal, checked the output against the expected results, and improved the code structure by separating each part into clear functions.
+* I isolated the issue by testing the `clean_records()` function directly in the terminal using print statements. To fix the string-to-integer bug safely, I implemented try-except blocks to cast the data types and fallback to a default value if the data was corrupt. I also created explicit deep copies of the data dictionary at the start of the transformation step so the original raw record remained perfectly intact.
