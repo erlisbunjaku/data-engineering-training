@@ -1,31 +1,30 @@
-Daily Report - Monday Practice
+Daily Reflection - Monday Practice
 
 Today I worked on:
-- Python lists and dictionaries
-- Looping through student records
-- Filtering data using conditions
-- Calculating averages and counts
-- Creating performance status logic
-- Building a simple student report system
+- Utilizing Python lists and dictionaries to model structured data records
+- Iterating through datasets using loops and implementing conditional logic for data filtering
+- Aggregating metrics by calculating statistical averages and frequency counts across specific categories
+- Developing data transformation pipelines to create lightweight, reporting-ready datasets
+- Structuring terminal-based reporting systems for clear data presentation
 
 Completed tasks:
-- Task 1: Basic student data printing
-- Task 2: Filtering students by city, attendance, and scores
-- Task 3: Calculations (average attendance, homework score, counts by city and course)
-- Task 4: Performance status classification
-- Task 5: Clean report generation
-- Bonus tasks: sorting, top 3 students, safety check, and function usage
+- Task 1: Implemented basic data rendering and formatting for student records
+- Task 2: Constructed data filters based on geographic location, attendance thresholds, and homework scores
+- Task 3: Engineered aggregation logic for metrics (averages) and categorical grouping (counts by city and course)
+- Task 4: Developed conditional evaluation logic to classify student performance status
+- Task 5: Generated a cleaned, minimized data report structure simulating production data reduction
+- Bonus Tasks: Organized code into reusable functions, implemented sorting logic, identified top performers, and added edge-case error handling for empty datasets
 
 Not completed yet:
-- None
+- None. All core and bonus requirements have been successfully implemented and verified.
 
 Biggest difficulty:
-- Understanding how to structure loops and conditions properly in Python
+- Managing nested data structures and ensuring the conditional logic for multi-variable filtering mapped correctly without performance overhead.
 
 How I tried to solve it:
-- Practiced step by step and tested each section in the terminal
+- Deconstructed the logic step-by-step, utilized incremental print statements in the terminal to verify the data shape at each stage, and refactored the code into functions to isolate scope.
 
 What I need to improve for Tuesday:
-- Work faster with loops and dictionaries
-- Improve code structure and readability
-- Get more comfortable with data transformations
+- Optimize the efficiency of working with dictionaries and iteration workflows.
+- Deepen understanding of automated data transformations to prepare for handling file-based inputs (CSV).
+- Maintain a high standard of modular code structure and internal documentation.
