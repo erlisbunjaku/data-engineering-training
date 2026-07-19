@@ -1,43 +1,50 @@
 Daily Report - Day 6 Practice
 
 Today I worked on:
-- Practiced SQL business reporting by creating queries using aggregations, GROUP BY, HAVING, and JOIN methods.
+- Practiced SQL business reporting by creating reports using aggregations, GROUP BY, HAVING, and JOIN operations.
+- Focused on transforming raw transaction data into useful business insights.
 
 SQL setup completed:
 - Created the customers, products, and orders tables.
-- Inserted the provided dataset and tested the database structure.
+- Inserted the provided dataset and verified that all tables returned the correct rows.
+- Practiced working with related tables using primary keys and foreign keys.
 
 Aggregation tasks completed:
 - Created queries using COUNT, SUM, AVG, MIN, and MAX.
 - Calculated total orders, completed orders, product prices, and completed revenue.
+- Learned that only completed orders should be counted as real revenue.
 
 GROUP BY tasks completed:
-- Created grouped reports by status, date, customer_id, and product_id.
-- Used HAVING to filter grouped results.
+- Created grouped reports by status, date, customer_id, product_id, city, and category.
+- Used HAVING to filter grouped results such as customers with multiple orders.
 
 JOIN tasks completed:
-- Connected orders with customers and products.
-- Created reports with customer names, cities, product names, categories, prices, and revenue calculations.
+- Connected orders with customers and products using matching ID columns.
+- Created business reports showing customer names, cities, products, categories, and revenue calculations.
+- Practiced creating reports from multiple related tables.
 
 Business report completed:
-- Analyzed SQL results and wrote business insights about revenue, products, customers, and cities.
+- Analyzed SQL results and created business insights about revenue performance, top products, customers, and cities.
 
 What I understood better today:
-- I understood better how SQL can be used to turn raw data into business reports.
-- I improved my understanding of aggregation functions, GROUP BY, HAVING, and how tables are connected.
+- I understood how SQL changes from simple row filtering into business reporting.
+- I improved my understanding of how aggregation functions summarize data.
+- I learned how JOINs allow information from different tables to be combined into useful reports.
 
 What was difficult:
-- Understanding JOIN methods and knowing which columns should be used to connect tables was the most difficult part.
-- I still need more practice when working with multiple tables.
+- Understanding JOIN relationships and choosing the correct columns to connect tables was the most difficult part.
+- Writing reports using multiple tables still requires more practice.
 
 What I need to practice more:
-- I need to practice writing more complex JOIN queries and understanding relationships between tables.
-- I also need more practice creating advanced business reports.
+- I need more practice with complex JOIN queries.
+- I want to improve my ability to design business reports from multiple datasets.
+- I need to continue practicing how to validate that SQL results are correct.
 
 Did I use AI? If yes, how did I use it?
-- Yes, I used AI to help check SQL syntax, correct mistakes, and understand query structure.
-- I used it as a learning tool to improve my understanding, not only to copy answers.
+- Yes, I used AI to review SQL syntax, identify mistakes, and better understand query structure.
+- I used it as a learning assistant to improve my understanding and fix errors, not only to copy solutions.
 
 What can I explain live without help:
-- I can explain basic SQL queries, aggregation functions, GROUP BY, HAVING, and how to calculate business metrics like revenue.
-- I can explain the purpose of JOINs, but I still need more practice to confidently write complex JOIN queries.
+- I can explain SELECT, WHERE, aggregation functions, GROUP BY, HAVING, and how revenue calculations work.
+- I can explain why JOINs are needed and how tables are connected.
+- I understand the logic behind JOIN queries, but I still need more practice writing complex ones independently.

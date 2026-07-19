@@ -1,48 +1,75 @@
--- Part 4 - JOIN Reports
+-- ==========================================
+-- Day 6 SQL Business Reporting
+-- JOIN Reports
+-- Two-table JOINs and Three-table JOINs
+-- ==========================================
 
--- Join orders with customers and show order_id, customer_name, city, order_date, and status.
+
+-- ==========================================
+-- Join orders with customers
+-- Shows customer information with order details
+-- ==========================================
+
 SELECT
-  orders.order_id,
-  customers.customer_name,
-  customers.city,
-  orders.order_date,
-  orders.status
-  FROM orders
-  JOIN customers
-  ON orders.customers_id = customers.customer_id;
+    orders.order_id,
+    customers.customer_name,
+    customers.city,
+    orders.order_date,
+    orders.status
+FROM orders
+JOIN customers
+ON orders.customer_id = customers.customer_id
+ORDER BY orders.order_id;
 
--- Join orders with products and show order_id, product_name, category, quantity, price, total_amount, and status.
+
+-- ==========================================
+-- Join orders with products
+-- Shows product information and total order value
+-- ==========================================
+
 SELECT
-  orders.order_id,
-  products.product_name,
-  products.category,
-  orders.quantity,
-  products.price,
-  orders.quantity * product.price AS total_amount
-  orders.status
-  FROM orders
-  JOIN products
-  ON orders.product_id = products.product_id;
+    orders.order_id,
+    products.product_name,
+    products.category,
+    orders.quantity,
+    products.price,
+    orders.quantity * products.price AS total_amount,
+    orders.status
+FROM orders
+JOIN products
+ON orders.product_id = products.product_id
+ORDER BY total_amount DESC;
 
--- Join all three tables and create a complete order report with customer_name, city, product_name, category,
-SELECT 
-  customers.customer_name,
-  customers.city,
-  products.product_name,
-  products.category,
-  orders.quantity,
-  products.price,
-  orders.quantity * products.price AS total_amount,
-  orders.status,
-  orders.order_date
-  FROM orders
-  JOIN customers
-  ON orders.customer_id = customers.customer_id
-  JOIN Products
-  ON orders.product_id = products.product_id
 
--- Create completed revenue by product_name.
--- Create completed revenue by product_name.
+-- ==========================================
+-- Complete order report using all three tables
+-- Customer + Product + Order information
+-- ==========================================
+
+SELECT
+    orders.order_id,
+    customers.customer_name,
+    customers.city,
+    products.product_name,
+    products.category,
+    orders.quantity,
+    products.price,
+    orders.quantity * products.price AS total_amount,
+    orders.status,
+    orders.order_date
+FROM orders
+JOIN customers
+ON orders.customer_id = customers.customer_id
+JOIN products
+ON orders.product_id = products.product_id
+ORDER BY total_amount DESC;
+
+
+-- ==========================================
+-- Completed revenue by product name
+-- Only completed orders count as real revenue
+-- ==========================================
+
 SELECT
     products.product_name,
     SUM(orders.quantity * products.price) AS completed_revenue
@@ -54,7 +81,11 @@ GROUP BY products.product_name
 ORDER BY completed_revenue DESC;
 
 
--- Create completed revenue by category.
+-- ==========================================
+-- Completed revenue by category
+-- Shows best performing product categories
+-- ==========================================
+
 SELECT
     products.category,
     SUM(orders.quantity * products.price) AS completed_revenue
@@ -66,7 +97,11 @@ GROUP BY products.category
 ORDER BY completed_revenue DESC;
 
 
--- Create order count by city.
+-- ==========================================
+-- Order count by city
+-- Shows which cities have the most orders
+-- ==========================================
+
 SELECT
     customers.city,
     COUNT(*) AS order_count
@@ -77,7 +112,11 @@ GROUP BY customers.city
 ORDER BY order_count DESC;
 
 
--- Create completed revenue by city.
+-- ==========================================
+-- Completed revenue by city
+-- Shows revenue performance by location
+-- ==========================================
+
 SELECT
     customers.city,
     SUM(orders.quantity * products.price) AS completed_revenue
@@ -91,7 +130,11 @@ GROUP BY customers.city
 ORDER BY completed_revenue DESC;
 
 
--- Create completed revenue by customer_name.
+-- ==========================================
+-- Completed revenue by customer
+-- Shows highest-value customers
+-- ==========================================
+
 SELECT
     customers.customer_name,
     SUM(orders.quantity * products.price) AS completed_revenue
@@ -105,7 +148,11 @@ GROUP BY customers.customer_name
 ORDER BY completed_revenue DESC;
 
 
--- Show customers with more than one order using GROUP BY and HAVING.
+-- ==========================================
+-- Customers with more than one order
+-- HAVING filters grouped results
+-- ==========================================
+
 SELECT
     customers.customer_name,
     COUNT(*) AS order_count
@@ -117,7 +164,10 @@ HAVING COUNT(*) > 1
 ORDER BY order_count DESC;
 
 
--- Show top 3 customers by completed revenue.
+-- ==========================================
+-- Top 3 customers by completed revenue
+-- ==========================================
+
 SELECT
     customers.customer_name,
     SUM(orders.quantity * products.price) AS completed_revenue
@@ -132,7 +182,10 @@ ORDER BY completed_revenue DESC
 LIMIT 3;
 
 
--- Show top 3 products by completed revenue.
+-- ==========================================
+-- Top 3 products by completed revenue
+-- ==========================================
+
 SELECT
     products.product_name,
     SUM(orders.quantity * products.price) AS completed_revenue
@@ -145,11 +198,16 @@ ORDER BY completed_revenue DESC
 LIMIT 3;
 
 
--- Show all pending or cancelled orders with customer_name, city, product_name, and potential_amount.
+-- ==========================================
+-- Pending and cancelled orders
+-- Potential value, not real revenue
+-- ==========================================
+
 SELECT
     customers.customer_name,
     customers.city,
     products.product_name,
+    orders.order_date,
     orders.quantity * products.price AS potential_amount,
     orders.status
 FROM orders
