@@ -1,23 +1,43 @@
 INVALID RECORDS REPORT
-==================================================
+============================================================
 
 Order ID: 15
 Customer: 
+Status: completed
+Quantity: 1
+Price: 75
 Reasons:
 - Missing customer name
 
+------------------------------------------------------------
+
 Order ID: 17
 Customer: Medina
+Status: completed
+Quantity: 0
+Price: 220
 Reasons:
 - Quantity must be greater than 0
+
+------------------------------------------------------------
 
 Order ID: 18
 Customer: Ilir
+Status: completed
+Quantity: -1
+Price: 180
 Reasons:
 - Quantity must be greater than 0
 
+------------------------------------------------------------
+
 Order ID: 20
 Customer: Arta
+Status: completed
+Quantity: 1
+Price: 0
 Reasons:
 - Price must be greater than 0
+
+------------------------------------------------------------
 

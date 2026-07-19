@@ -2,95 +2,109 @@
 
 ## Why validation was done before revenue calculation
 
-I did validation before calculating revenue because invalid records should not affect the business results. For example, an order with an empty customer name, zero quantity, or zero price is not a trustworthy order. If those records were included, the revenue numbers could become incorrect and the business could make decisions based on bad data.
+Validation was done before calculating revenue because invalid records should not affect business results.
+
+Orders with missing customer names, zero quantity, or invalid prices are not trustworthy. Including them could create incorrect reports and wrong business decisions.
 
 ---
 
 ## How status normalization works
 
-The status normalization function takes the original status value, removes extra spaces, and converts it to lowercase.
+Status normalization cleans inconsistent values by removing spaces and converting text to lowercase.
 
-For example:
-- "Completed" becomes "completed"
-- "complete" becomes "completed"
-- "completed" stays "completed"
+Examples:
+- "Completed" → "completed"
+- "complete" → "completed"
+- "completed" → "completed"
 
-This makes all completed orders have the same value so they can be counted correctly.
+This makes completed orders easier to count correctly.
 
 ---
 
 ## Why only completed orders count as revenue
 
-Only completed orders represent real sales. Pending orders are not finished, cancelled orders were not sold, and returned orders should not be counted as successful revenue.
+Only completed orders represent real business income.
 
-Because of this, the revenue calculations only use orders where the status is "completed".
+Pending, cancelled, and returned orders are not counted because they are not successful sales.
+
+The revenue calculation only uses orders where the status is "completed".
 
 ---
 
 ## How count_by_field works
 
-The count_by_field function creates a dictionary that counts how many times each value appears.
+The `count_by_field()` function creates a dictionary with counts for a selected field.
 
-Example with cities:
+Steps:
+1. Start with an empty dictionary.
+2. Loop through every record.
+3. Get the selected value.
+4. Increase the count if it exists, otherwise create it.
 
-1. It starts with an empty dictionary.
-2. It goes through every order one by one.
-3. It takes the value from the selected field, for example the city.
-4. If the city already exists in the dictionary, it increases the count.
-5. If it does not exist, it creates it with a value of 1.
+Example:
+- Prishtina: 5 orders
+- Vushtrri: 4 orders
 
-The result shows how many orders belong to each category, city, status, or channel without manually writing every possible value.
+This allows reports to work without hardcoding values.
 
 ---
 
 ## How sum_revenue_by_field works
 
-The sum_revenue_by_field function calculates revenue grouped by a specific field.
+The `sum_revenue_by_field()` function calculates revenue grouped by a field.
 
-The steps are:
+Steps:
+1. Loop through cleaned orders.
+2. Keep only completed orders.
+3. Get the selected field value.
+4. Add the order's `total_amount` to the dictionary.
 
-1. It creates an empty dictionary.
-2. It checks every order.
-3. It ignores orders that are not completed.
-4. It gets the chosen field value, such as city or customer.
-5. It adds the order total_amount to that value in the dictionary.
-
-For example, all completed orders from Prishtina are added together to show the total completed revenue from that city.
+Example:
+- Revenue by city
+- Revenue by category
+- Revenue by customer
 
 ---
 
 ## How sorting is used to find top records
 
-Sorting is used to arrange records from the highest value to the lowest value.
+Sorting is used to rank records from highest to lowest value.
 
-For example, when finding the top 5 orders:
-1. The script gets only completed orders.
-2. It sorts them using total_amount.
-3. It reverses the order so the biggest values appear first.
-4. It takes only the first 5 records.
+For top orders:
+1. Get completed orders.
+2. Sort by `total_amount`.
+3. Reverse the order.
+4. Take the first 5 records.
 
-The same idea is used for top customers and products by revenue.
+The same method is used for top customers and products.
 
 ---
 
 ## What main() does and why it improves script structure
 
-The main() function controls the whole program flow.
+The `main()` function controls the full pipeline.
 
-It runs each part in order:
-- checks raw data
-- validates orders
-- cleans the valid data
-- calculates business metrics
-- creates reports
-- prints results
+It runs:
+- Raw data inspection
+- Validation
+- Cleaning
+- Calculations
+- Report generation
 
-Using main() keeps the code organized because each function has its own responsibility and the program is easier to read and update.
+Using `main()` keeps the code organized because every function has a clear responsibility.
 
 ---
 
 ## Example metric calculation: Completed Revenue
 
-The completed revenue metric is calculated by first getting only completed orders using the get_completed_orders function.
+Completed revenue is calculated by first filtering completed orders using `get_completed_orders()`.
 
-After that, the calculate_completed_revenue function adds the total_amount of each completed order:
+Then `calculate_completed_revenue()` adds the `total_amount` of every completed order.
+
+Formula:
+
+
+completed revenue = sum of total_amount from completed orders
+
+
+This ensures only valid completed sales are included.

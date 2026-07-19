@@ -1,40 +1,50 @@
-EXECUTIVE BUSINESS PERFORMANCE REPORT
-==================================================
+DAY 8 BUSINESS PERFORMANCE REPORT
+============================================================
 
-SECTION 1: KEY PERFORMANCE INDICATORS
---------------------------------------------------
-Total Completed Revenue: EUR 2,689.00
-Number of Completed Orders: 14
-Average Order Size: EUR 192.07
-Highest Completed Order: EUR 720.00
-Lowest Completed Order: EUR 15.00
+KEY METRICS
+------------------------------------------------------------
+Valid orders: 20
+Invalid orders removed: 4
+Completed orders: 14
+Completed revenue: EUR 2689.00
+Average completed order value: EUR 192.07
+Highest completed order: EUR 720.00
+Lowest completed order: EUR 15.00
 
-SECTION 2: PERFORMANCE BY DIMENSIONS
---------------------------------------------------
-Completed Revenue by City:
-  - Prishtina: EUR 849.00
-  - Vushtrri: EUR 790.00
-  - Peja: EUR 510.00
-  - Prizren: EUR 360.00
-  - Mitrovica: EUR 180.00
+REVENUE BY CITY
+------------------------------------------------------------
+Prishtina: EUR 849.00
+Vushtrri: EUR 790.00
+Peja: EUR 510.00
+Prizren: EUR 360.00
+Mitrovica: EUR 180.00
 
-Completed Revenue by Category:
-  - Electronics: EUR 1,960.00
-  - Office: EUR 430.00
-  - Accessories: EUR 299.00
+REVENUE BY CATEGORY
+------------------------------------------------------------
+Electronics: EUR 1960.00
+Office: EUR 430.00
+Accessories: EUR 299.00
 
-Completed Revenue by Channel:
-  - online: EUR 1,099.00
+REVENUE BY CHANNEL
+------------------------------------------------------------
+online: EUR 1099.00
+partner: EUR 800.00
+store: EUR 750.00
+unknown: EUR 40.00
 
-  - partner: EUR 800.00
+TOP CUSTOMERS
+------------------------------------------------------------
+Bleron: EUR 720.00
+Arta: EUR 700.00
+Leart: EUR 440.00
 
-  - store: EUR 750.00
+TOP PRODUCTS
+------------------------------------------------------------
+Laptop: EUR 1420.00
+Monitor: EUR 540.00
+Desk Chair: EUR 360.00
 
-  - unknown: EUR 40.00
-
-SECTION 3: STRATEGIC BUSINESS RECOMMENDATIONS
---------------------------------------------------
-1. Mitigate Data Loss: Integrate frontend form validation rule controls to avoid 
-   costly data validation dropouts (such as missing names, empty prices, or wrong quantities).
-2. Focus on Top Locations: Prishtina and Vushtrri generate our largest sales volumes.
-   Focus high-tier digital ads and store operations on these core hubs.
+BUSINESS RECOMMENDATION
+------------------------------------------------------------
+Focus on high performing products and cities because they generate the majority of completed revenue.
+Improve data validation before reporting because invalid records can create incorrect business decisions.

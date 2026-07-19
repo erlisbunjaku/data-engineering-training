@@ -1,28 +1,28 @@
 # Daily Report - Day 8 Practice
 
 Today I worked on:
-Building a Python data analysis project where I processed raw order data, cleaned the records, validated the information, calculated business metrics, and created reports.
+Building a Python data logic pipeline that processes raw order records, validates data quality, cleans inconsistent values, calculates business metrics, and generates business reports.
 
 Python tasks completed:
-Completed functions for validation, cleaning, normalization, calculations, dictionary reports, sorting, and file generation.
+Created functions for validation, normalization, cleaning, revenue calculation, dictionary-based reporting, sorting, and output file generation.
 
 Validation logic completed:
-Created validation rules for missing customer names, invalid quantities, and invalid prices. Invalid records were separated and saved with the reasons why they were removed.
+Added validation rules for missing customer names, invalid quantities, and invalid prices. Invalid records were separated from valid records and saved with clear reasons.
 
 Cleaning/normalization completed:
-Normalized statuses, cities, categories, and channels. Added calculated total amounts for valid orders.
+Normalized status, city, category, and channel values. Added calculated total_amount values to cleaned orders.
 
 Reports generated:
-Created validation reports, invalid records reports, and a business report with revenue calculations, summaries, and rankings.
+Generated validation reports, invalid record reports, and a business report containing completed revenue, summaries, rankings, and business insights.
 
 What was difficult:
-The hardest part was organizing the full data flow and understanding when each step should happen. I also had some difficulties with dictionary-based reports and sorting data correctly.
+The most difficult part was understanding the correct order of the data pipeline. I learned that data must be validated and cleaned before calculating business metrics. Creating dynamic dictionary reports and sorting results also required practice.
 
 What I understood better today:
-I understood better how real data needs to be cleaned before making calculations and how functions help organize larger Python programs.
+I understood better how data engineers transform raw data into trusted business information using validation, cleaning, and reporting logic.
 
 What I need to practice more:
-I need more practice with working with dictionaries, sorting complex data, and creating larger data processing scripts.
+I need more practice with complex dictionary operations, sorting larger datasets, and creating more advanced data processing pipelines.
 
 Did I use AI? If yes, how did I use it?
-Yes, I used AI mainly for help with formatting my reports, understanding parts where I was stuck, checking my logic, and getting explanations for concepts that were unclear. I used it as support to understand the code better, not to replace the work.
+Yes, I used AI to help check my logic, understand errors, improve documentation, and explain concepts where I was stuck. I used it as a learning tool to improve my understanding, not as a replacement for writing and understanding the code.
