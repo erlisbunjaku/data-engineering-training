@@ -1,0 +1,38 @@
+Day 11 Practice Report
+
+Today I worked on:
+
+- Built a Python CSV data pipeline using Bronze → Silver → Gold architecture.
+- Loaded raw CSV files from the Bronze layer.
+- Added validation rules to detect invalid records.
+- Normalized status, city, and channel values.
+- Used lookup functions to connect orders with customer and product data.
+- Generated Silver outputs:
+  - orders_clean.csv
+  - invalid_orders.csv
+- Generated Gold business reports:
+  - revenue_by_city.csv
+  - revenue_by_category.csv
+  - top_customers.csv
+  - executive_summary.txt
+- Created SQL setup and reporting queries using trusted clean data.
+- Documented the project workflow in README.md.
+
+Key concepts learned:
+
+- Raw data should be validated before analysis.
+- Invalid records should be separated instead of ignored.
+- Python is useful for cleaning and transforming data.
+- SQL is useful for business reporting and analysis.
+- Bronze → Silver → Gold is a common data engineering workflow.
+
+Challenges solved:
+
+- Handling missing and inconsistent data.
+- Normalizing different status and city formats.
+- Connecting multiple datasets using lookup logic.
+- Ensuring completed revenue only includes valid completed orders.
+
+Final outcome:
+
+Created a complete local data pipeline that transforms messy CSV data into trusted datasets and business reports ready for SQL analysis.
